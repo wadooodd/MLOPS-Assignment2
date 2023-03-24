@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Stock Market Dashboard</title>
+  </head>
+  <body>
+    <h1>Stock Market Dashboard</h1>
+    <p>Latest Stock Data:</p>
+    {{ data|safe }}
+    <p>Close Price Prediction: ${{ close_price }}</p>
+    <p>Mean Squared Error: {{ mse }}</p>
+    <h2>Predict the Close Price</h2>
+    <form action="/predict" method="post">
+      <label for="open">Open:</label>
+      <input type="number" step="0.01" id="open" name="open" required><br><br>
+      <label for="high">High:</label>
+      <input type="number" step="0.01" id="high" name="high" required><br><br>
+      <label for="low">Low:</label>
+      <input type="number" step="0.01" id="low" name="low" required><br><br>
+      <label for="volume">Volume:</label>
+      <input type="number" id="volume" name="volume" required><br><br>
+      <input type="submit" value="Predict">
+    </form>
+  </body>
+</html>
